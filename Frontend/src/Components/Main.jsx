@@ -17,11 +17,13 @@ function Main() {
   const getData = async () => {
     
     const data = await axios.get('/api/booking/')
-    let nums = data.data[0].seats
-    for(let i = 0 ; i < 11; i++){
+    let nums = data?.data[0]?.seats
+    for(let i = 0 ; i < nums?.length-1; i++){
       nums[i] = 7-nums[i]
     }
-    nums[11] = 3-nums[11]
+    if(nums?.length !== 0 && nums?.length === 12){
+      nums[11] = 3-nums[11]
+    }
 
     setTotal(data.data[0]?.total)
     setArr(nums)
