@@ -5,7 +5,7 @@ const resetALl = async(req,res) => {
         total : 80,
         seats: [7,7,7,7,7,7,7,7,7,7,7,3]
     },{new: true});
-    console.log(updatedBooking)
+    // console.log(updatedBooking)
     res.status(201).json(updatedBooking)
 }
 const bookSeat = async(req,res) => {
